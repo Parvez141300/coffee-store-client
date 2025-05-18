@@ -9,7 +9,7 @@ const SignIn = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     // firebase sign in
     signInUser(email, password)
@@ -20,7 +20,7 @@ const SignIn = () => {
             lastSignInTime: result?.user?.metadata?.lastSignInTime
         }
         // update last sign in to the database
-        fetch('http://localhost:3000/users', {
+        fetch('https://coffee-store-server-ten-iota.vercel.app/users', {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -29,11 +29,11 @@ const SignIn = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log('after update patch', data);
+            // console.log('after update patch', data);
         })
     })
     .catch(error => {
-        console.log(error.message);
+        // console.log(error.message);
     })
   };
 

@@ -11,10 +11,10 @@ const UpdateCoffee = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newCoffee = Object.fromEntries(formData.entries());
-    console.log(newCoffee);
+    // console.log(newCoffee);
 
     // update coffee in db
-    fetch(`http://localhost:3000/coffees/${_id}`, {
+    fetch(`https://coffee-store-server-ten-iota.vercel.app/coffees/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -23,7 +23,7 @@ const UpdateCoffee = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("After update", data);
+        // console.log("After update", data);
         if (data.modifiedCount) {
           Swal.fire({
             position: "center",

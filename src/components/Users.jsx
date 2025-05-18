@@ -1,27 +1,27 @@
-import React, { use, useState } from "react";
+import React, {  useState } from "react";
 import { FaEye, FaPen, FaTrash } from "react-icons/fa";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
-import { AuthContext } from "../context/AuthContext";
+
 
 const Users = () => {
-  const { removeUser } = use(AuthContext);
+
   const initialUsers = useLoaderData();
   const [users, setUsers] = useState(initialUsers);
   console.log(users);
 
   const handleDelete = (id) => {
-    console.log("deleted", id);
+    // console.log("deleted", id);
 
     // delete user
-    fetch(`http://localhost:3000/users/${id}`, {
+    fetch(`https://coffee-store-server-ten-iota.vercel.app/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("after user delete", data);
+        // console.log("after user delete", data);
         if (data.deletedCount) {
-          const remainingUsers = users.filter((u) => u._id !== id);
+          const remainingUsers = users?.filter((u) => u._id !== id);
           setUsers(remainingUsers);
           
           Swal.fire({
@@ -37,7 +37,7 @@ const Users = () => {
 
   return (
     <div>
-      <h2 className="text-3xl">Users: {initialUsers.length}</h2>
+      <h2 className="text-3xl">Users: {initialUsers?.length}</h2>
 
       <div className="overflow-x-auto">
         <table className="table">
@@ -53,7 +53,7 @@ const Users = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {users.map((user, index) => (
+            {users?.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
                 <td>

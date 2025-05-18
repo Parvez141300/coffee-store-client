@@ -16,7 +16,7 @@ const SignUp = () => {
     // create user in the firebase
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
 
         const userProfile = {
             email,
@@ -26,7 +26,7 @@ const SignUp = () => {
         }
 
         // save profile in database
-        fetch("http://localhost:3000/users", {
+        fetch("https://coffee-store-server-ten-iota.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -35,7 +35,7 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("after profile save", data);
+            // console.log("after profile save", data);
             if (data.insertedId) {
               Swal.fire({
                 position: "center",
@@ -49,7 +49,7 @@ const SignUp = () => {
           });
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
       });
   };
 

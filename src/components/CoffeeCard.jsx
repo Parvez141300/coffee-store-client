@@ -8,7 +8,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
   const { photo, name, price, quantity, _id } = coffee;
 
   const handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
 
     Swal.fire({
       title: "Are you sure?",
@@ -20,12 +20,12 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/coffees/${id}`, {
+        fetch(`https://coffee-store-server-ten-iota.vercel.app/coffees/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("After delete", data);
+            // console.log("After delete", data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",

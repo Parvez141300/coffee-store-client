@@ -7,10 +7,10 @@ const AddCoffee = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newCoffee = Object.fromEntries(formData.entries());
-    console.log(newCoffee);
+    // console.log(newCoffee);
 
     // send coffee data to the server
-    fetch("http://localhost:3000/coffees", {
+    fetch("https://coffee-store-server-ten-iota.vercel.app/coffees", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -20,7 +20,7 @@ const AddCoffee = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log("added successfully");
+          // console.log("added successfully");
           Swal.fire({
             title: "Added Successfully",
             icon: "success",

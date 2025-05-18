@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <p>Loading...</p>,
-        loader: () => fetch("http://localhost:3000/coffees"),
+        loader: () => fetch("https://coffee-store-server-ten-iota.vercel.app/coffees"),
         Component: Home,
       },
       {
@@ -32,14 +32,14 @@ const router = createBrowserRouter([
         path: "/coffee/:id",
         hydrateFallbackElement: <p>Loading...</p>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/coffees/${params.id}`),
+          fetch(`https://coffee-store-server-ten-iota.vercel.app/coffees/${params.id}`),
         Component: CoffeeDetails,
       },
       {
         path: "/updatecoffee/:id",
         hydrateFallbackElement: <p>Loading...</p>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/coffees/${params.id}`),
+          fetch(`https://coffee-store-server-ten-iota.vercel.app/coffees/${params.id}`),
         Component: UpdateCoffee,
       },
       {
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: '/users',
         hydrateFallbackElement: <p>Loading...</p>,
-        loader: () => fetch("http://localhost:3000/users"),
+        loader: () => fetch("https://coffee-store-server-ten-iota.vercel.app/users"),
         Component: Users
       }
     ],
